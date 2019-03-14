@@ -17,6 +17,7 @@
  * 
  * @see <a href="https://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html">Java SE 7 Features and Enhancements</a>
  * 
+ * @see <a href="https://segmentfault.com/a/1190000004417830#articleHeader9">Java7的新特性</a>
  * @author hepengju
  *
  */
