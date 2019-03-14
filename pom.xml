@@ -56,22 +56,17 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.javamoney</groupId>
+			<artifactId>moneta</artifactId>
+			<version>0.9</version>
+		</dependency>
 	</dependencies>
 
 
 	<!-- 三.插件配置 -->
 	<build>
 		<plugins>
-			<!-- 版本插件 -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<generateBackupPoms>false</generateBackupPoms>
-				</configuration>
-			</plugin>
-
 			<!-- 0.Maven编译插件: 保留参数名称 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -83,6 +78,19 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
+			
+			<!-- 版本插件 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<generateBackupPoms>false</generateBackupPoms>
+				</configuration>
+			</plugin>
+
+
+
 		</plugins>
 	</build>
 </project>
