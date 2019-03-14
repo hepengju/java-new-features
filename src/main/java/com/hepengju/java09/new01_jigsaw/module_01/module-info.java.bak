@@ -1,0 +1,7 @@
+/**
+ * Created by WGR.
+ */
+module java9demo {
+    //package we export
+    exports com.hepengju.java09.new01_jigsaw.module_01;
+}

@@ -1,0 +1,7 @@
+/**
+ * Created by WGR.
+ */
+module java9 {
+
+    requires jdk.incubator.httpclient;
+}

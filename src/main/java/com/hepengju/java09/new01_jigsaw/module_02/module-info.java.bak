@@ -1,0 +1,8 @@
+/**
+ * Created by WGR.
+ */
+module javatest {
+
+    requires module_01;
+    
+}
