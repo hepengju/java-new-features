@@ -1,5 +1,7 @@
 package com.hepengju.java05.new06_generic;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -11,11 +13,11 @@ import org.junit.Test;
  * 
  * <pre>
  *  泛型: 为了运行时期不出现类型异常,可以在定义容器时,就明确容器中元素的类型.
- *    JDK1.5之前: 容器什么类型的对象都可以存储. 但是在取出时,需要用到对象的特有内容时,需要做向下转型. 此时如果对象的类型不一致,就会导致ClassCaseException异常.为了避免这个问题,只能主观上控制,往集合中存储的对象类型保存一致.
+ *    JDK1.5之前: 容器什么类型的对象都可以存储. 但是在取出时,需要用到对象的特有内容时,需要做向下转型. 此时如果对象的类型不一致,就会导致ClassCastException异常.为了避免这个问题,只能主观上控制,往集合中存储的对象类型保存一致.
  *    JDK1.5之后: 解决了该问题,在定义集合时就直接明确集合中存储元素的具体类型,这样编译器在编译时,就可以对集合中存储的对象类型进行检查,一旦发现类型不匹配,就编译失败,这个技术就是泛型技术.
  *  好处: 1.将运行时期的问题转移到了编译时期,可以更好的让程序员发现问题并解决问题
  *        2.避免了向下转型的麻烦
- *  总结: 泛型就是应用在编译时期的一项安全机制.
+ *  总结: 泛型就是应用在编译时期的一项安全机制
  * 
  *  泛型的擦除: 编译器通过泛型对元素类型进行检查,只要通过检查就会生成class文件,但是在class文件中就将泛型标识去掉了
  *  泛型的应用: 泛型类, 泛型接口, 泛型方法
@@ -33,7 +35,36 @@ import org.junit.Test;
  *  	TreeSet(Collection<? extends E> coll)       E或E的子类都可以添加进去,返回的是E的集合
  *  	TreeSet(Comparator<? super E> comparator)   E或E的父类实现比较接口都可以
  *  
- *  疑问: TODO 泛型编译后已经擦除,如何通过反射获取到泛型<>中的类信息的?
+ *  注意:
+ *      1. 泛型的类型参数只能是类类型，不能是简单类型。
+ *      2. 不能对确切的泛型类型使用instanceof操作,例如 if(g01 instanceof Generic<String>){ } 
+ *  
+ *  常见泛型字母:
+ *      * E - Element (在集合中使用，因为集合中存放的是元素)
+ *      * T - Type（Java 类）
+ *      * K - Key（键）
+ *      * V - Value（值）
+ *      * N - Number（数值类型）
+ *      * ? - 表示不确定的java类型
+ *      * S、U、V  - 2nd、3rd、4th types
+ *      * R - 返回值
+ *  
+ *      
+ *  反射获取泛型信息:
+ *      * 获取父类的泛型步骤思路
+ *          1. Class clazz         = getClass()                 获取本类
+ *          2. Type  type          = getGenericSuperClass()     获取带有泛型的父类
+ *          3. ParameterizedType p = (ParameterizedType)type    已知其为参数化类型(泛型)
+ *          4. Type[] types        = p.getActualTypeArguments() 获取参数化类型的数组, 泛型可能有多个
+ *      * 场景: public interface UserMapper extends OssMapper<User>{}
+ *      
+ *  备注: 
+ *      1. Type是 Java 编程语言中所有类型的公共高级接口。它们包括原始类型、参数化类型、数组类型、类型变量和基本类型。
+ *      
+ *  疑问与待做: TODO 
+ *      1. 泛型编译后已经擦除,如何通过反射获取到泛型<>中的类信息的?
+ *      2. 泛型数组?  list.toArray(T[] arr)
+ *      3. 泛型类型的反射获取
  * </pre>
  * 
  * @see <a href="https://www.cnblogs.com/coprince/p/8603492.html">java 泛型详解-绝对是对泛型方法讲解最详细的，没有之一</a>
@@ -121,6 +152,7 @@ public class _Generic {
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		Generic g03 = new Generic(true);
 		System.out.println(g03.getKey());            // true
+		System.out.println(g03.getKey().getClass()); // class java.lang.Boolean
 		
 		//Cannot perform instanceof check against parameterized type Generic<String>. 
 		//Use the form Generic<?> instead since further generic type information will be erased at runtime
@@ -148,8 +180,8 @@ public class _Generic {
 		
 		//showKeyValue01(g01);
 		//showKeyValue01(g02);//The method showKeyValue(Generic<Number>) in the type GenericDemo is not applicable for the arguments (Generic<Integer>)
-		showKeyValue02(g01);
-		showKeyValue02(g02);
+		showKeyValue02(g01);  //key is: 100
+		showKeyValue02(g02);  //key is: 200
 	}
 	
 	public void showKeyValue01(Generic<Number> obj) {
@@ -242,48 +274,38 @@ public class _Generic {
 		return max;
 	}
 	
-	// 人比较器
-	class PersonComparator implements Comparator<Person>{
-		@Override
-		public int compare(Person o1, Person o2) {
-			return o1.getName().compareTo(o2.getName());
-		}
+	/**
+	 * 反射获取泛型信息
+	 */
+	@Test public void getGenericTypeOfSuperClass() {
+	    // 字符串
+	    StringGenerator sg = new StringGenerator("孙悟空");
+	    Class<? extends StringGenerator> clazz = sg.getClass();
+	    Type type = clazz.getGenericSuperclass();
+	    if(type instanceof ParameterizedType) {
+	        ParameterizedType pt = (ParameterizedType) type;
+	        Type[] types = pt.getActualTypeArguments();
+	        for (int i = 0; i < types.length; i++) {
+	            System.out.println(types[i]);                // class java.lang.String
+                System.out.println(types[i].getTypeName());  // java.lang.String
+            }
+	    }
+	    
+	    System.out.println("***********************************");
+	    
+	    // 人
+	    PersonGeneric pg = new PersonGeneric(new Person("猪八戒"));
+	    Class<? extends PersonGeneric> clazz2 = pg.getClass();
+	    Type type2 = clazz2.getGenericSuperclass();
+	    if(type2 instanceof ParameterizedType) {
+	        ParameterizedType pt2 = (ParameterizedType) type2;
+	        Type[] types2 = pt2.getActualTypeArguments();
+	        for (Type type3 : types2) {
+	            System.out.println(type3);                 // class com.hepengju.java05.new06_generic.Person
+	            System.out.println(type3.getTypeName());   // com.hepengju.java05.new06_generic.Person
+            }
+	    }
+	   
 	}
-	
-	// 学生比较器
-	class StudentComparator implements Comparator<Student>{
-		@Override
-		public int compare(Student o1, Student o2) {
-			return o1.getName().compareTo(o2.getName()) == 0 ? o1.getAge().compareTo(o2.getAge()) : o1.getName().compareTo(o2.getName());
-		}
-	}
-	
-	// 人
-	class Person{
-		private String name;
-		public Person(String name) {this.name = name;}
-		public String getName() {return name;}
-		public void setName(String name) {this.name = name;}
-		@Override
-		public String toString() {
-			return "Person [name=" + name + "]";
-		}
-		
-	}
-	
-	// 学生
-	class Student extends Person{
-		private Integer age;
-		public Student(String name, Integer age) {
-			super(name);
-			this.age = age;
-		}
-		public Integer getAge() {return age;}
-		public void setAge(Integer age) {this.age = age;}
-		@Override
-		public String toString() {
-			return "Student [age=" + age + ", getName()=" + getName() + "]";
-		}
-		
-	}
+
 }

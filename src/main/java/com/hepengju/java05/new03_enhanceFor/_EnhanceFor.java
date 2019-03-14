@@ -27,12 +27,12 @@ public class _EnhanceFor {
 	/**
 	 * 遍历数组
 	 */
-	@Test public void testArray() {
-		int[] arr = {1,2,3,4,5};
-		for (int i : arr) {
-			System.out.println(i);
-		}
-	}
+    @Test public void testArray() {
+        int[] arr = { 1, 2, 3, 4, 5 };
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
 
     /**
      * 新添加的Iterable接口

@@ -18,7 +18,15 @@ import org.junit.Test;
  *  相同: Runtime.getRuntime().exec(command)底层调用的new ProcessBuilder(cmdArray).start()
  *  不同: Runtime.getRuntime.exec()可以把命令和参数写在一个String中，用空格分开
  *       ProcessBuilder则是构造函数的参数中，传递一个由命令和参数组成的list或数组
+ *  
+ *  注意: 死锁问题
+ *      
+ *  场景:
+ *      1. Linux服务器上调用shell脚本, 比如浦发元数据项目的统一认证shell脚本
+ *      
  * </pre>
+ * 
+ * @see com.hepengju.java05.new10_processBuilder.ExecUtil
  * 
  * @see <a href="https://blog.csdn.net/seapeak007/article/details/69668600">调用Process.waitfor导致的进程挂起</a>
  * @see <a href="https://blog.csdn.net/c315838651/article/details/72085739">Java进程Runtime、Process、ProcessBuilder调用外部程序</a>

@@ -15,6 +15,7 @@ import org.junit.Test;
  * 
  *  枚举集合: EnumSet/EnumMap  EnumSet保证集合中的enum不重复. EnumMap中的key是enum类型,而value则可以是任意类型
  *  枚举比较: 枚举类型对象之间的值比较,是可以使用==.直接来比较值是否相等的,不是必须使用equals方法 (java.lang.Enum.equals(Object)的方法内部就是==)
+ *  枚举类型比较: 当且仅当 e1.getDeclaringClass() == e2.getDeclaringClass() 时，两个枚举常量 e1 和 e2 的枚举类型才相同
  *  
  *  特殊枚举: 
  * 		枚举类里面有构造方法: 构造方法里面有参数,需要在每个实例上面都写参数

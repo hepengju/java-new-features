@@ -42,4 +42,4 @@ Java新特性 5，6，7，8，9，10，11
 ## 合作者(加入的先后顺序)
 - [hepengju](https://github.com/hepengju)
 - [wangguorong](https://github.com/dalianpai)
-- [namchern](https://github.com/namchern)
+- [chennan](https://github.com/949035443)

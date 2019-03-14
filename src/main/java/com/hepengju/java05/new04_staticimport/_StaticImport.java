@@ -16,12 +16,14 @@ import org.junit.Test;
  * 静态导入
  * 
  * <pre>
- *  通过使用 import static 就可以不用指定类名而直接使用静态成员,包括静态方法和常量
+ *  说明: 通过使用 import static 就可以不用指定类名而直接使用静态成员,包括静态方法和常量
  * 
  *  区别: import xxxx 和 import static xxxx
- *     前者一般导入的是类文件   import java.util.Scanner
- *     后者一般是导入静态的方法 import static java.lang.System.out
+ *     * 前者一般导入的是类文件   import java.util.Scanner
+ *     * 后者一般是导入静态的方法 import static java.lang.System.out
  * <pre>
+ * 
+ * @see com.hepengju.java08.new04_streamAPI._StreamAPI#testStreamCompSql
  * 
  * @author hepengju
  *
