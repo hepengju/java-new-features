@@ -17,9 +17,12 @@ import org.junit.Test;
 public class _Multijar {
     
     /**
+     * 
      * 根据不同的jdk，执行不同的class版本
      * 当环境为jdk8时，输出：Generated strings: [Java, 8]
      * 当环境为jdk9时，输出：Generated strings: [Java, 9]
+     * 
+     * 说明：由于项目改成maven项目，之前测试用的自定义jar不方便使用，故这里只做演示阐述。
      */
     @Test
     public void testMultijatr() {
