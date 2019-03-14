@@ -8,7 +8,7 @@ import org.junit.Test;
  * <pre>
  * 
  *  进制字面量: 
- *      * 二进制: 0b 或 0B 开头
+ *      * 二进制: 0b 或 0B 开头  --> 新支持
  *      * 八进制: 0 开头
  *      * 十六进制: 0x 或 0X 开头
  *      
@@ -67,5 +67,17 @@ public class _BinaryLiteral {
         System.out.println(n); // 128
     }
     
-    
+    /**
+     * 进制解析
+     * 
+     * <br> {@link Integer#parseInt(String, int)} 支持2进制到36进制
+     */
+    @Test public void testParse() {
+        System.out.println(Integer.parseInt("11",2));  // 3
+        System.out.println(Integer.parseInt("11",8));  // 9
+        System.out.println(Integer.parseInt("11"));    // 11 默认为10进制
+        System.out.println(Integer.parseInt("11",16)); // 17
+        
+        System.out.println(Integer.parseInt("11",7));  // 8
+    }
 }

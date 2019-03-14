@@ -16,6 +16,6 @@ public class _GenericInference {
     @SuppressWarnings("unused")
     @Test public void testGenericInference() {
         List<String> list01 = new ArrayList<String>();
-        List<String> list02 = new ArrayList<>();       // 后面的类型可以推断出来,可以省略不谢
+        List<String> list02 = new ArrayList<>();       // 后面的类型可以推断出来,可以省略不写 (必须要指定diamond操作符)
     }
 }

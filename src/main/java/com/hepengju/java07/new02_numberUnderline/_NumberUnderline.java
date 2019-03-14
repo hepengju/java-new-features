@@ -5,6 +5,7 @@ import org.junit.Test;
 /**
  * 数字下划线
  * 
+ * <br> 说明: 编译时编译器自己主动删除数字中的下划线
  * @author hepengju
  *
  */

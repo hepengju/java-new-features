@@ -14,6 +14,8 @@ import org.junit.Test;
  * 
  * TWR(try-with-resource)语句
  * 
+ * <br> 另外: {@link Throwable} 添加 addSuppressed 方法和 getSuppressed 方法
+ * 
  * @author hepengju
  *
  */

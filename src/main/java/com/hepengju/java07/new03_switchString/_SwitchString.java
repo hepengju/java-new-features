@@ -8,6 +8,11 @@ import org.junit.Test;
 /**
  * Switch对字符串的支持
  * 
+ * <pre>
+ *  说明: switch 语句中的变量类型可以是： byte、short、int、char 和 枚举
+ *       从 Java SE 7 开始，switch 支持字符串 String 类型了，同时 case 标签必须为字符串常量或字面量。
+ * </pre>
+ * 
  * @author hepengju
  *
  */
