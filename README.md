@@ -22,6 +22,12 @@ Java新特性 5，6，7，8，9，10，11
 
 ![图片展示](https://github.com/hepengju/java-new-features/blob/master/src/main/resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
 
+## 视频教程整理
+- Java8新特性(尚硅谷): 链接:https://pan.baidu.com/s/1tQEdb5RGH17CLe-Bj6plfQ  密码:eylh
+- Java8新特性高级: 链接:https://pan.baidu.com/s/1U4WGdxGkq1D1w_wHplMKvA  密码:1yb0
+- Java 9新特性(尚硅谷): 链接:https://pan.baidu.com/s/1RNV8A5pFihG1Wt5tgBZzfw  密码:w0r3
+- Java10新特性: 链接:https://pan.baidu.com/s/1Ol0bfXSNNxGzqRBJuaGI4A  密码:qcfh
+- Java11新特性(尚硅谷): 链接:https://pan.baidu.com/s/1w2DB_UnpQc5K3hdLoduzJA  密码:1hqm 
 
 ## 参与规范
 1. 注释: 按照javadoc规范写, 以便后续生成javadoc文档

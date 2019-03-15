@@ -61,6 +61,12 @@
 			<artifactId>moneta</artifactId>
 			<version>0.9</version>
 		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+		</dependency>
 	</dependencies>
 
 
@@ -78,7 +84,7 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
-			
+
 			<!-- 版本插件 -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
