@@ -43,24 +43,27 @@
 			<version>4.12</version>
 		</dependency>
 
-		<!-- 钱和货币API -->
-		<dependency>
-			<groupId>org.javamoney</groupId>
-			<artifactId>moneta</artifactId>
-			<version>1.3</version>
-			<type>pom</type>
-		</dependency>
-
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+		
+	<!--WGR 测试用的O.9,举哥用的1.3，由于1.3没有那些类，当1.3放在上面时，并不会引用0.9的jar包  -->	
 		<dependency>
 			<groupId>org.javamoney</groupId>
 			<artifactId>moneta</artifactId>
 			<version>0.9</version>
 		</dependency>
+		
+	 <!-- 钱和货币API -->
+	 <!-- 当1.3和0.9共存的时候，有import类的提示，但还是报错，先注释1.3，便没有问题 -->
+	 <!--  <dependency>
+            <groupId>org.javamoney</groupId>
+            <artifactId>moneta</artifactId>
+            <version>1.3</version>
+            <type>pom</type>
+        </dependency> -->
 	</dependencies>
 
 
