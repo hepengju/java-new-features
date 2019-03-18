@@ -3,6 +3,7 @@ package com.hepengju.java08.new04_streamAPI;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
 import static java.util.Comparator.nullsLast;
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.mapping;
@@ -17,7 +18,6 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
@@ -175,7 +175,7 @@ public class _StreamAPI {
         LinkedHashMap<String, Optional<Integer>> map = 
             plist.stream()
                  .filter(p -> Arrays.asList("孙悟空","猪八戒").contains(p.getName())) // name in ('孙悟空','猪八戒')
-                 .filter(p -> Objects.nonNull(p.getAge()))                          // age is not null
+                 .filter(p -> nonNull(p.getAge()))                          // age is not null
                  .sorted(comparing(Person::getName,nullsLast(naturalOrder())))      // order by name, 注意空值问题
                //.collect(groupingBy(Person::getName)                               // Map<String, List<Person>>, 此处搜集到的还是人,但需要的是年龄,继续downstream搜集
                  .collect(groupingBy(Person::getName,LinkedHashMap::new,mapping(Person::getAge, maxBy(Integer::compare))))   // group by name

@@ -1,6 +1,17 @@
 # java-new-features
 Java新特性 5，6，7，8，9，10，11
 
+# JCP/JEP/JSR
+- JCP: [Java Community Process](https://www.jcp.org/en/home/index)
+    * Java社区进程
+    * JCP成立于1998年, 由社会各界Java组成的社区, 规划和领导Java的发展 
+- JEP: [JDK Enhancement Proposals](http://openjdk.java.net/jeps/0) 
+    * jdk改进提案, 非正式的规范
+    * OpenJDK社区搜集增强jdk提案的过程
+- JSR: [Java Specification Requests](https://www.jcp.org/en/jsr/platform)
+    * java规范请求, 标准化技术规范的正式请求
+    * 由JCP成员向委员会提交的Java发展提案, 经过一系列流程后, 如果通过最终会体现在未来的Java中
+
 ## 新特性目标(为什么需要不断升级)
 - 速度更快
 - 代码更少
