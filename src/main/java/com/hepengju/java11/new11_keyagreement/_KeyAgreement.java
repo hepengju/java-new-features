@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.spec.NamedParameterSpec;
 import java.security.spec.XECPublicKeySpec;
@@ -48,6 +47,7 @@ public class _KeyAgreement {
         KeyAgreement ka = KeyAgreement.getInstance("XDH");
         ka.init(kp.getPrivate());
         ka.doPhase(pubKey, true);
+        @SuppressWarnings("unused")
         byte[] secret = ka.generateSecret();
     }
 
