@@ -73,4 +73,17 @@ public class _Autoboxing {
 		System.out.println(x == y); // false
 	}
 	
+	/**
+	 * 自动拆箱的空指针异常示例
+	 */
+	@Test public void testNullPoint() {
+	    printInt(10);
+	    printInt(null);  // java.lang.NullPointerException
+	}
+	
+	private void printInt(Integer m) {
+	    int n = m;
+	    System.out.println(n);
+	}
+	
 }

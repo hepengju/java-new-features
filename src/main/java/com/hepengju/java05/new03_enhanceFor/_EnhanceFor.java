@@ -58,5 +58,36 @@ public class _EnhanceFor {
 		}
 	}
 	
+	/**
+	 * 遍历自定义的类
+	 */
+	@Test public void testMyClass() {
+	    MyClass mc = new MyClass();
+	    for (Integer i : mc) {
+            System.out.print(i); // 54321
+        }
+	}
+	
+	class MyIterator implements Iterator<Integer>{
+	    private int total = 5;
+        
+	    @Override
+        public boolean hasNext() {
+            return total > 0;
+        }
+
+        @Override
+        public Integer next() {
+            return (total--);
+        }
+	}
+	
+	class MyClass implements Iterable<Integer>{
+        @Override
+        public Iterator<Integer> iterator() {
+            return new MyIterator();
+        }
+	    
+	}
 }
 
