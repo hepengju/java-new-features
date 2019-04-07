@@ -72,7 +72,7 @@ import org.junit.Test;
  *
  */
 public class _Generic {
-	
+
 	/**
 	 * 为什么需要泛型
 	 */
@@ -178,16 +178,16 @@ public class _Generic {
 		Generic<Number>  g01 = new Generic<>(100);
 		Generic<Integer> g02 = new Generic<>(200);
 		
-		//showKeyValue01(g01);
+		showKeyValue01(g01);
 		//showKeyValue01(g02);//The method showKeyValue(Generic<Number>) in the type GenericDemo is not applicable for the arguments (Generic<Integer>)
 		showKeyValue02(g01);  //key is: 100
 		showKeyValue02(g02);  //key is: 200
 	}
 	
-	public void showKeyValue01(Generic<Number> obj) {
+	private void showKeyValue01(Generic<Number> obj) {
 		System.out.println("key is: " + obj.getKey());
 	}
-	public void showKeyValue02(Generic<?> obj) {  //此处的?和Number、String、Integer一样都是一种实际的类型,可以把看成所有类型的父类,是一种真实的类型
+	private void showKeyValue02(Generic<?> obj) {  //此处的?和Number、String、Integer一样都是一种实际的类型,可以把看成所有类型的父类,是一种真实的类型
 		System.out.println("key is: " + obj.getKey());
 	}
 	
@@ -200,7 +200,7 @@ public class _Generic {
 	 * 
 	 * @see GenericMethodBase    泛型方法基本用法
 	 * @see GenericMethodInClass 类中的泛型方法
-	 * @see #printlnAll()        泛型方法与可变参数
+	 * @see printlnAll()        泛型方法与可变参数
 	 *                              JDK参考: Arrays.asList(T... a)
 	 *                                      Collections.addAll(Collection<? super T> c, T... elements
 	 *                                      EnumSet.of(E first, E... rest)
@@ -209,18 +209,24 @@ public class _Generic {
 	 *                              静态方法无法访问类上定义的泛型；如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。
 	 */
 	@Test public void testGenericMethod() {
-		//泛型方法与可变参数
-		printlnAll("123","abc",true);
+		// 泛型方法与可变参数
+		// printlnAll("123", "abc", true);
+
+		// Idea,Java12中编译提示如下警告,提示如下修改
+		// 对于类型为java.lang.Object&java.io.Serializable&java.lang.Comparable<? extends java.lang.Object&java.io
+		// .Serializable&java.lang.Comparable<?>>[]的 varargs 参数, 泛型数组创建未经过检查
+		printlnAll(new java.io.Serializable[]{"123", "abc", true});
 	}
-	
-	public <T> void printlnAll(@SuppressWarnings("unchecked") T... args){
+
+	@SuppressWarnings("unchecked")
+	private <T> void printlnAll(T... args){
 		for (int i = 0; i < args.length; i++) {
 			T t = args[i];
 			System.out.println(t);
 		}
 	}
 	
-	public static <T> void showTStatic(T t) {
+	private static <T> void showTStatic(T t) {
 		System.out.println(t);
 	}
 
