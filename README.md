@@ -1,5 +1,5 @@
 # java-new-features
-Java新特性 5，6，7，8，9，10，11
+Java新特性 5，6，7，8，9，10，11，12
 
 # JCP/JEP/JSR
 - JCP: [Java Community Process](https://www.jcp.org/en/home/index)
@@ -30,6 +30,7 @@ Java新特性 5，6，7，8，9，10，11
 - [Java09新特性](https://docs.oracle.com/javase/9/whatsnew/toc.htm#JSNEW-GUID-C23AFD78-C777-460B-8ACE-58BE5EA681F6)
 - [Java10新特性](https://www.oracle.com/technetwork/java/javase/10-relnote-issues-4108729.html#NewFeature)
 - [Java11新特性](https://www.oracle.com/technetwork/java/javase/11-relnote-issues-5012449.html#NewFeature)
+- [Java12新特性](https://www.oracle.com/technetwork/java/javase/12-relnote-issues-5211422.html#NewFeature)
 
 ![图片展示](https://github.com/hepengju/java-new-features/blob/master/src/main/resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
 

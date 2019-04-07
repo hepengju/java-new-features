@@ -12,10 +12,12 @@ public enum WorkdayEnum {
 	private int value;
 	
 	//此处只能是private, 否则报错: Illegal modifier for the enum constructor; only private is permitted.
-	private WorkdayEnum(int value) {
+	// idea提示: Modifier 'private' is redundant for enum constructors (冗余的)
+	WorkdayEnum(int value) {
 		this.value = value;
 	}
-	
+
+	//WorkdayEnum
 	public int getValue() {
 		return this.value;
 	}
