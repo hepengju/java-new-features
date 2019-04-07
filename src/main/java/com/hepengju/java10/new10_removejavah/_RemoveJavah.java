@@ -2,11 +2,11 @@ package com.hepengju.java10.new10_removejavah;
 
 /**
  * 
- * É¾³ı¹¤¾ßjavah
+ * åˆ é™¤å·¥å…·javah
  * 
  * <pre>
  *     JEP 313: Remove the Native-Header Generation Tool 
- *     ´ÓJDKÖĞÒÆ³ıÁËjavah¹¤¾ß£¬Õâ¸öºÜ¼òµ¥²¢ÇÒºÜÖØÒª¡£
+ *     ä»JDKä¸­ç§»é™¤äº†javahå·¥å…·ï¼Œè¿™ä¸ªå¾ˆç®€å•å¹¶ä¸”å¾ˆé‡è¦ã€‚
  *     @See <a href="http://openjdk.java.net/jeps/313">
  * </pre>
  * 
