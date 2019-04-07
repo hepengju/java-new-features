@@ -10,49 +10,54 @@ import org.junit.Test;
 
 /**
  * 泛型: 参数化类型
- * 
+ *
  * <pre>
  *  泛型: 为了运行时期不出现类型异常,可以在定义容器时,就明确容器中元素的类型
- *    JDK1.5之前: 容器什么类型的对象都可以存储. 但是在取出时,需要用到对象的特有内容时,需要做向下转型. 
- *               此时如果对象的类型不一致,就会导致ClassCastException异常.为了避免这个问题,只能主观上控制,往集合中存储的对象类型保存一致.
+ *    JDK1.5之前: 容器什么类型的对象都可以存储. 但是在取出时,需要用到对象的特有内容时,需要做向下转型.
+ *               此时如果对象的类型不一致,就会导致ClassCastException异常.为了避免这个问题,只能主观上控制,往集合中存储的对象类型保证一致
  *    JDK1.5之后: 解决了该问题,在定义集合时就直接明确集合中存储元素的具体类型,这样编译器在编译时,就可以对集合中存储的对象类型进行检查,
- *               一旦发现类型不匹配,就编译失败,这个技术就是泛型技术.
- *               
+ *               一旦发现类型不匹配,就编译失败,这个技术就是泛型技术
+ *
  *  好处: 1.将运行时期的问题转移到了编译时期,可以更好的让程序员发现问题并解决问题
  *        2.避免了向下转型的麻烦
  *  总结: 泛型就是应用在编译时期的一项安全机制
- * 
+ *
  *  泛型的擦除: 编译器通过泛型对元素类型进行检查,只要通过检查就会生成class文件,但是在class文件中就将泛型标识去掉了
  *  泛型的应用: 泛型类, 泛型接口, 泛型方法
  *  泛型通配符: 在不明确具体类型的情况下,可以使用通配符"?"来表示任意类型
- *  泛型的限定: <? extends E>: E类型或者E的子类型  (泛型上限)
- *            <? super   E>: E类型或者E的父类型  (泛型下限)
- * 
+ *  泛型的限定:
+ *      * <? extends E>: E类型或者E的子类型  (泛型上限)
+ *      * <? super   E>: E类型或者E的父类型  (泛型下限)
+ *
  *  什么时候用到上限呢? 往容器存入
  *      一般往集合存储元素时,如果集合定义了E类型通常情况下应该存储E类型的对象,对于E的子类型的对象E类型也可以接受,所以这时可以将泛型从E改为? extends E
  *  什么时候用到下限呢? 从容器取出
  *      当从容器中取出元素操作时,可以用E类型接收,也可以用E的父类型接收
- *  
- *  演示泛型在API中的体现,
- *  	TreeSet的构造函数 
+ *
+ *  演示泛型在API中的体现
+ *  	TreeSet的构造函数
  *  	TreeSet(Collection<? extends E> coll)       E或E的子类都可以添加进去,返回的是E的集合
  *  	TreeSet(Comparator<? super E> comparator)   E或E的父类实现比较接口都可以
- *  
+ *
  *  注意:
  *      1. 泛型的类型参数只能是类类型，不能是简单类型。
- *      2. 不能对确切的泛型类型使用instanceof操作,例如 if(g01 instanceof Generic<String>){ } 
- *  
+ *      2. 不能对确切的泛型类型使用instanceof操作,例如 if(g01 instanceof Generic<String>){ }
+ *
  *  常见泛型字母:
  *      * E - Element     元数据: 在集合中使用，因为集合中存放的是元素
  *      * T - Type        类
  *      * K - Key         键
- *      * V - Value       值 
+ *      * V - Value       值
  *      * N - Number      数值类型
  *      * ? -             表示不确定的java类型
- *      * S、U、V          2nd、3rd、4th types
+ *      * U、V            2nd、3rd(字母表T的后面是U,V)
  *      * R -             返回值
- *  
- *      
+ *
+ *      * A - accumulation 下游收集器的中间累积类型 {@link java.util.stream.Collectors#mapping(java.util.function.Function, java.util.stream.Collector)}
+ *      * M - Map          Map的类型             {@link java.util.stream.Collectors#uniqKeysMapMerger}
+ *      * C - Collection   Collection的类型      {@link java.util.stream.Collectors#toCollection}
+ *
+ *
  *  反射获取泛型信息:
  *      * 获取父类的泛型步骤思路
  *          1. Class clazz         = getClass()                 获取本类
@@ -60,16 +65,16 @@ import org.junit.Test;
  *          3. ParameterizedType p = (ParameterizedType)type    已知其为参数化类型(泛型)
  *          4. Type[] types        = p.getActualTypeArguments() 获取参数化类型的数组, 泛型可能有多个
  *      * 场景: public interface UserMapper extends OssMapper<User>{}
- *      
- *  备注: 
- *      1. Type是 Java 编程语言中所有类型的公共高级接口。它们包括原始类型、参数化类型、数组类型、类型变量和基本类型。
- *      
- *  疑问与待做: TODO 
+ *
+ *  备注:
+ *      1. Type 是 Java 编程语言中所有类型的公共高级接口。它们包括原始类型、参数化类型、数组类型、类型变量和基本类型。
+ *
+ *  疑问与待做: TODO
  *      1. 泛型编译后已经擦除,如何通过反射获取到泛型<>中的类信息的?
  *      2. 泛型数组?  list.toArray(T[] arr)
  *      3. 泛型类型的反射获取
  * </pre>
- * 
+ *
  * @see <a href="https://www.cnblogs.com/coprince/p/8603492.html">java 泛型详解-绝对是对泛型方法讲解最详细的，没有之一</a>
  * @author hepengju
  *
@@ -203,7 +208,7 @@ public class _Generic {
 	 * 
 	 * @see GenericMethodBase    泛型方法基本用法
 	 * @see GenericMethodInClass 类中的泛型方法
-	 * @see #printlnAll()        泛型方法与可变参数
+	 * @see printlnAll()        泛型方法与可变参数
 	 *                              JDK参考: Arrays.asList(T... a)
 	 *                                      Collections.addAll(Collection<? super T> c, T... elements
 	 *                                      EnumSet.of(E first, E... rest)
@@ -215,7 +220,7 @@ public class _Generic {
 		//泛型方法与可变参数
 		printlnAll("123","abc",true);
 	}
-	
+
 	public <T> void printlnAll(@SuppressWarnings("unchecked") T... args){
 		for (int i = 0; i < args.length; i++) {
 			T t = args[i];

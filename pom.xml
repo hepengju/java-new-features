@@ -24,8 +24,9 @@
 	</developers>
 
 	<properties>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>12</maven.compiler.source>
+		<maven.compiler.target>12</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -82,6 +83,8 @@
 					<compilerArgs>
 						<arg>-parameters</arg>
 					</compilerArgs>
+					<source>12</source>
+					<target>12</target>
 				</configuration>
 			</plugin>
 
