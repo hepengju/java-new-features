@@ -1,35 +1,21 @@
 package com.hepengju.java08.new04_streamAPI;
 
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.naturalOrder;
-import static java.util.Comparator.nullsLast;
-import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.mapping;
-import static java.util.stream.Collectors.maxBy;
-import static java.util.stream.Collectors.toList;
+import org.junit.Test;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-import org.junit.Test;
+import static java.util.Comparator.*;
+import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.*;
 
 /**
- * 强大的StreamAPI
+ * 强大的StreamAPI: 只需要告诉程序需要的是什么, 而不用管如何做
  * 
  * <pre>
  *  说明: Stream是Java8中处理集合的关键抽象概念,可以执行非常复杂的查找/过滤/映射等操作,类似SQL,高效且易用
@@ -43,15 +29,24 @@ import org.junit.Test;
  *      * 创建流: 
  *          - 集合创建: Collection.stream
  *          - 数组创建: Arrays.stream
- *          - 值创建:  Stream.of
- *          - 函数创建: Stream.of(T...), Stream.iterate, Stream.generate
+ *          - 多值创建: Stream.of
+ *          - 函数创建: Stream.iterate, Stream.generate
+ *
  *          - 实用流:  IntStream, LongStream, DoubleStream
- *      * 中间操作: 
+ *              * 为什么需要原始类型流呢? 可以增加一些特有的方法, 比如sum, 同时可以降低内存使用
+ *              * 转换为对象流: boxed, mapToObj
+ *
+ *          补充:
+ *          - 文件的行: java.nio.file.Files#lines(java.nio.file.Path)
+ *          - 正则分隔: Pattern#splitAsStream(java.lang.CharSequence)
+ *
+ *      * 中间操作:
  *          - 筛选切片: filter, distint, limit, skip
  *          - 映射: map, mapToInt/Long/Double, flapMap
  *          - 排序: sorted, sorted(comparator)
  *          - 查找匹配: all/any/noneMatch, findFirst, findAny
  *          - 调试: peek
+ *
  *      * 终止操作: 
  *          - 普通: count, max, min, forEach
  *          - 规约: reduce(T,BinaryOperator), reduce(BinaryOperator) 
@@ -73,7 +68,7 @@ import org.junit.Test;
  *      column                    map
  *      max,min,distinct          max,min,distinct
  *      where                     filter
- *      exists/in                 anyMatch
+ *      exists/in                 anyMatch, allMatch
  *      group by                  groupingBy, partitionBy
  *      orderBy                   sorted
  *      limit/rownum              skip,limit

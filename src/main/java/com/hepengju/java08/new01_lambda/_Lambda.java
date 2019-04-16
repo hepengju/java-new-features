@@ -17,6 +17,8 @@ import org.junit.Test;
  *      左侧: Lambda参数
  *      中间: Lambda操作符 -> ,也称为箭头操作符或
  *      右侧: Lambda体       ,即要执行的功能
+ *
+ *  其他: lambda表达式比匿名内部类更加节省内存空间(Java8的JVM内存结构发生变化)
  * </pre>
  * 
  * @author hepengju

@@ -27,7 +27,9 @@ import org.junit.Test;
  *          
  *          ToIntFunction<T>, ToLongFunction<T>, ToDoubleFunction<T>: 给定T类型数据,返回int,long,double
  *          IntFunction<R>  , LongFunction<R>  , DoubleFunction<R>  : 给定int,long,double,返回R类型
- * 
+ *
+ *          IntPredicate, LongPredicate, DoublePredicate: 针对基本类型的断言型接口
+ *
  *  作用: 编写方法当需要传递Lambda表达式时,不用再自定义函数式接口,直接使用内置的函数式接口即可
  * </pre>
  * 
