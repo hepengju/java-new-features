@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -13,6 +14,11 @@ import java.util.stream.Stream;
 import static java.util.Comparator.*;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * 强大的StreamAPI: 只需要告诉程序需要的是什么, 而不用管如何做
@@ -85,17 +91,16 @@ public class _StreamAPI {
     /**
      * 创建流
      */
-    @SuppressWarnings("unused")
-    @Test public void testCreateStream() {
+    @SuppressWarnings({ "unused", "resource" })
+    @Test public void testCreateStream() throws IOException {
         // 由集合(Collection)创建流
         List<String> list = List.of("a", "b", "c"); //此处的of()是java09的新特性
-        Set<String>  set  =  Set.of("a", "b", "c");  //此处的of()是java09的新特性
+        Set<String>  set  = Set.of("a", "b", "c");  //此处的of()是java09的新特性
         Stream<String> s01 = list.stream();
         Stream<String> s02 = set.stream();
         
         // 由数组创建流
-        int[] arr = new int[] {1,2,3};
-        IntStream s03 = Arrays.stream(arr);
+        IntStream s03 = Arrays.stream(new int[] {1,2,3});
         
         // 由值创建流
         Stream<Integer> s04 = Stream.of(1,2,3);
@@ -103,6 +108,14 @@ public class _StreamAPI {
         // 由函数创建流: 迭代,生成
         Stream<Integer> s05 = Stream.iterate(1, x -> x*x);
         Stream<Integer> s06 = Stream.generate(() -> new Random().nextInt(100));
+        
+        // 文件
+        Stream<Path> pathStream = Files.walk(Paths.get("."));
+        Stream<String> linesStream = Files.lines(Paths.get("."));
+        
+        // 正则
+        Pattern pattern = Pattern.compile(",");
+        Stream<String> strStream = pattern.splitAsStream("孙悟空,猪八戒,唐三藏,沙悟净");
     }
     
     //测试数据准备
@@ -124,7 +137,7 @@ public class _StreamAPI {
              .limit(2)
              .map(Person::getName)              // 映射
              .sorted()                          // 排序
-             .sorted(Comparator.reverseOrder())
+             .sorted(reverseOrder())
              .findFirst();                      // 终止
              ;
              
@@ -145,7 +158,7 @@ public class _StreamAPI {
                                             arr02[i] = arr01[i];
                                         }
                                   return arr02;})
-                             .flatMap(Arrays::stream)   // 拍平
+                             .flatMap(Arrays::stream)   // 扁平化
                              .map(String::valueOf)
                              .collect(joining(","));
         System.out.println(collect); // 孙,悟,空,猪,八,戒
@@ -157,8 +170,8 @@ public class _StreamAPI {
      */
     @Test public void testIntStream() {
         IntStream.range(1, 10).forEach(System.out::println);
-        LongStream.iterate(2, x -> x*2).limit(10).forEach(System.out::println);
-        DoubleStream.of(1.1,2.2,3.3).forEach(System.out::println);
+        LongStream.iterate(2, x -> x * 2).limit(10).forEach(System.out::println);
+        DoubleStream.of(1.1, 2.2, 3.3).forEach(System.out::println);
     }
     
     /**
@@ -170,7 +183,7 @@ public class _StreamAPI {
         LinkedHashMap<String, Optional<Integer>> map = 
             plist.stream()
                  .filter(p -> Arrays.asList("孙悟空","猪八戒").contains(p.getName())) // name in ('孙悟空','猪八戒')
-                 .filter(p -> nonNull(p.getAge()))                          // age is not null
+                 .filter(p -> nonNull(p.getAge()))                                  // age is not null
                  .sorted(comparing(Person::getName,nullsLast(naturalOrder())))      // order by name, 注意空值问题
                //.collect(groupingBy(Person::getName)                               // Map<String, List<Person>>, 此处搜集到的还是人,但需要的是年龄,继续downstream搜集
                  .collect(groupingBy(Person::getName,LinkedHashMap::new,mapping(Person::getAge, maxBy(Integer::compare))))   // group by name
