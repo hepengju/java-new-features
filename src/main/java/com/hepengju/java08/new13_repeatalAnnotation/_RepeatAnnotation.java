@@ -1,4 +1,4 @@
-package com.hepengju.java08.new08_repeatalAnnotation;
+package com.hepengju.java08.new13_repeatalAnnotation;
 
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Method;

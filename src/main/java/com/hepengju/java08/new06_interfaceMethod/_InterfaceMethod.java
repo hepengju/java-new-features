@@ -1,4 +1,4 @@
-package com.hepengju.java08.new05_interfaceMethod;
+package com.hepengju.java08.new06_interfaceMethod;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.hepengju.java08.new06_newDateTime;
+package com.hepengju.java08.new10_newDateTime;
 
 import static java.time.DayOfWeek.MONDAY;
 import static java.time.DayOfWeek.SUNDAY;

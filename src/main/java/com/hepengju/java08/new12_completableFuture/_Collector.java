@@ -1,4 +1,4 @@
-package com.hepengju.java08.new12_collector;
+package com.hepengju.java08.new12_completableFuture;
 
 /**
  * 搜集器

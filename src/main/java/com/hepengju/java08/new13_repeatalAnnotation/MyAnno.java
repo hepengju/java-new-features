@@ -1,4 +1,4 @@
-package com.hepengju.java08.new08_repeatalAnnotation;
+package com.hepengju.java08.new13_repeatalAnnotation;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
