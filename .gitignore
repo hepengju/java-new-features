@@ -116,5 +116,4 @@ local.properties
 .classpath
 .project
 .settings
-./target/
-/target/
+target/
