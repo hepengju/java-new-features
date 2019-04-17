@@ -112,3 +112,8 @@ local.properties
 .scala_dependencies
 .worksheet
 
+# 手动添加
+.classpath
+.project
+.settings
+./target/

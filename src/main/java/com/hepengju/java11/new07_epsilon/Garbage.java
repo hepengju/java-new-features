@@ -1,5 +1,11 @@
 package com.hepengju.java11.new07_epsilon;
 
+/**
+ * 垃圾对象
+ * 
+ * @author hepengju
+ */
+@SuppressWarnings("unused")
 public class Garbage {
     
     private double d1 = 1;

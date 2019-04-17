@@ -226,7 +226,7 @@ public class _Generic {
 		}
 	}
 	
-	private static <T> void showTStatic(T t) {
+	public static <T> void showTStatic(T t) {
 		System.out.println(t);
 	}
 

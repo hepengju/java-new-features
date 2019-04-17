@@ -2,7 +2,6 @@ package com.hepengju.java08.new07_optional;
 
 import java.util.Optional;
 
-import com.hepengju.java08.new04_streamAPI.Person;
 import org.junit.Test;
 
 /**
@@ -44,7 +43,7 @@ public class _Optional {
      * Optional的使用
      */
     @Test public void testOptionalUse(){
-        Person person = new Person("孙悟空");
+        Person01 person = new Person01("孙悟空");
         System.out.println(getNameByPerson1(person));
         System.out.println(getNameByPerson2(person));
 
@@ -73,7 +72,7 @@ public class _Optional {
     /**
      * 方法1
      */
-    public String getNameByPerson1(Person person){
+    public String getNameByPerson1(Person01 person){
         if(person == null){
             return "Unkonwn";
         }
@@ -84,20 +83,8 @@ public class _Optional {
     /**
      * 方法2
      */
-    public String getNameByPerson2(Person person){
-        return Optional.ofNullable(person).map(Person::getName).orElse("Unknown");
+    public String getNameByPerson2(Person01 person){
+        return Optional.ofNullable(person).map(Person01::getName).orElse("Unknown");
     }
 
-    class Person{
-        private String name;
-
-        public Person(String name) {
-            this.name = name;
-        }
-
-        public String getName(){
-            return this.name;
-        }
-
-    }
 }
