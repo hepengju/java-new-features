@@ -47,10 +47,12 @@ import java.nio.file.Paths;
  *          - 正则分隔: Pattern#splitAsStream(java.lang.CharSequence)
  *
  *      * 中间操作:
- *          - 筛选切片: filter, distint, limit, skip
+ *          - 筛选: filter, distinct
+ *          - 切片: limit, skip
  *          - 映射: map, mapToInt/Long/Double, flapMap
  *          - 排序: sorted, sorted(comparator)
- *          - 查找匹配: all/any/noneMatch, findFirst, findAny
+ *          - 查找: findFirst, findAny
+ *          - 匹配: all/any/noneMatch
  *          - 调试: peek
  *
  *      * 终止操作: 
