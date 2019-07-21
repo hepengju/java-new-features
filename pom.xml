@@ -7,7 +7,7 @@
 	<version>0.1</version>
 
 	<name>Java新特性</name>
-	<description>Java新特性代码展示 - 5,6,7,8,9,10,11</description>
+	<description>Java新特性代码展示 - 5,6,7,8,9,10,11,12</description>
 
 	<!-- 描述信息和开发人员信息 -->
 	<developers>
@@ -25,10 +25,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- 
-		<maven.compiler.source>12</maven.compiler.source>
-		<maven.compiler.target>12</maven.compiler.target>
-		 -->
+		<JAVA12_HOME>D:\Program Files\Java\jdk-12.0.2</JAVA12_HOME>
+        <!-- 由于有其他参数需要详细配置, 此处注释掉
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+         -->
 	</properties>
 
 	<dependencies>
@@ -39,7 +40,7 @@
 			<version>5.1.47</version>
 		</dependency>
 
-		<!-- JUnit测试 : 5版本的设计思想与用法变化比较大,暂时还是使用4版本的. 没有将范围设置为test是因为貌似在Eclipse中设置为test后有问题,实际发布保留此jar包也不影响 -->
+		<!-- JUnit测试 : 5版本的设计思想与用法变化比较大,暂时还是使用4版本的 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -80,19 +81,22 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>3.8.1</version>
 				<configuration>
+					<verbose>true</verbose>
+          			<fork>true</fork>
+					<executable>${JAVA12_HOME}/bin/javac</executable>
+					<source>12</source>
+					<target>12</target>
 					<compilerArgs>
 						<arg>-parameters</arg>
-						<arg>--enable-preview</arg>
+						<!--
+						<arg>&#45;&#45;enable-preview</arg>
 						<arg>-Xlint:deprecation</arg>
 						<arg>-Xlint:unchecked</arg>
 						<arg>-Xlint:preview</arg>
+                        -->
 					</compilerArgs>
-					
-					<!-- 备注: 3.8.0 暂不支持 Java12 -->
-					<source>11</source>
-					<target>11</target>
 				</configuration>
 			</plugin>
 

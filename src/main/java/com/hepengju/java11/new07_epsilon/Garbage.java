@@ -12,7 +12,7 @@ public class Garbage {
     private double d2 = 2;
     
     // 这个方法是GC在清除本对象时, 会调用一次
-    @Override
+    @Override @SuppressWarnings("all")
     public void finalize() {
         System.out.println(this + " collecting");
     }
