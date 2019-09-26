@@ -1,9 +1,6 @@
 # java-new-features
 Java新特性 5，6，7，8，9，10，11，12
 
-[![Badge](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg?style=flat-square)](https://996.icu/#/zh_CN)
-[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
-
 # JCP/JEP/JSR
 - JCP: [Java Community Process](https://www.jcp.org/en/home/index)
     * Java社区进程
@@ -21,7 +18,7 @@ Java新特性 5，6，7，8，9，10，11，12
 - 更加安全
 
 ## 项目目标
-1. 列举Java5-12版本的关键新特性
+1. 列举Java5-13版本的关键新特性
 2. 对每个新特性进行全面的阐述与代码示例
 3. 在doc文件夹中生成xmind,ppt,pdf,javadoc等离线参考文档
 
