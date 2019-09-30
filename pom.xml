@@ -7,7 +7,7 @@
 	<version>0.1</version>
 
 	<name>Java新特性</name>
-	<description>Java新特性代码展示 - 5,6,7,8,9,10,11,12</description>
+	<description>Java新特性代码展示 - 5,6,7,8,9,10,11,12,13</description>
 
 	<!-- 描述信息和开发人员信息 -->
 	<developers>
@@ -25,11 +25,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<JAVA12_HOME>D:\Program Files\Java\jdk-12.0.2</JAVA12_HOME>
+		<JAVA_HOME>D:\java\jdk-13</JAVA_HOME>
         <!-- 由于有其他参数需要详细配置, 此处注释掉
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
-         -->
+		<maven.compiler.source>13</maven.compiler.source>
+		<maven.compiler.target>13</maven.compiler.target>
+		-->
 	</properties>
 
 	<dependencies>
@@ -85,9 +85,11 @@
 				<configuration>
 					<verbose>true</verbose>
           			<fork>true</fork>
-					<executable>${JAVA12_HOME}/bin/javac</executable>
-					<source>12</source>
-					<target>12</target>
+					<executable>${JAVA_HOME}/bin/javac</executable>
+					<!--
+					<source>13</source>
+					<target>13</target>
+					-->
 					<compilerArgs>
 						<arg>-parameters</arg>
 						<!--
