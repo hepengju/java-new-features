@@ -86,14 +86,12 @@
 					<verbose>true</verbose>
           			<fork>true</fork>
 					<executable>${JAVA_HOME}/bin/javac</executable>
-					<!--
 					<source>13</source>
 					<target>13</target>
-					-->
 					<compilerArgs>
 						<arg>-parameters</arg>
+						<arg>--enable-preview</arg>
 						<!--
-						<arg>&#45;&#45;enable-preview</arg>
 						<arg>-Xlint:deprecation</arg>
 						<arg>-Xlint:unchecked</arg>
 						<arg>-Xlint:preview</arg>
