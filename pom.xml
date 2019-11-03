@@ -34,10 +34,18 @@
 
 	<dependencies>
 		<!-- 数据库驱动 -->
+		<!--
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.47</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- JUnit测试 : 5版本的设计思想与用法变化比较大,暂时还是使用4版本的 -->

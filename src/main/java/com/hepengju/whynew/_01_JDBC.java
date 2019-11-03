@@ -26,8 +26,10 @@ import org.junit.Test;
 public class _01_JDBC {
 
     // JDBC的四大连接参数
-    private String className = "com.mysql.jdbc.Driver";
-    private String jdbcUrl   = "jdbc:mysql://mysql57.hepengju.cn:3306/java-new-features?useSSL=false";
+    //private String className = "com.mysql.jdbc.Driver";
+    //private String jdbcUrl   = "jdbc:mysql://mysql.hepengju.cn:3306/learn?useSSL=false";
+    private String className = "com.mysql.cj.jdbc.Driver";
+    private String jdbcUrl   = "jdbc:mysql://mysql.hepengju.cn:3306/learn?allowPublicKeyRetrieval=true";
     private String username  = "java123";
     private String password  = "java123";
 
