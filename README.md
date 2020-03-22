@@ -1,3 +1,5 @@
+![图片展示](./src/main/resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
+
 # java-new-features
 Java新特性 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 
@@ -10,8 +12,6 @@ Java新特性 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 - 速度更快
 - 代码更少
 - 更加安全
-
-![图片展示](./src/main/resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
 
 ## 官网新特性
 | Oracle官网                                                   | OpenJDK官网                                       |
