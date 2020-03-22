@@ -12,6 +12,7 @@
  * @see <a href="http://openjdk.java.net/projects/jdk/14/">JDK 14 Features</a>
  * @see <a href="https://blog.csdn.net/kkkloveyou/article/details/104936781">JDK 14如期发布，16个新特性快速预览</a>
  * @see <a href="https://zhuanlan.zhihu.com/p/85101581">JDK 14: Java 14 中的新特性</a>
+ * @see <a href="https://www.cnblogs.com/vipstone/p/12547371.html">Java14来了</a>
  *
  * @author hepengju
  */
