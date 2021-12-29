@@ -1,7 +1,5 @@
 package com.hepengju.java12.new04_other;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -83,10 +81,10 @@ public class _Other {
 //        System.out.println(result); // _Other.NumResult(count=4, sum=50)
 //    }
 
-    @Data
-    @AllArgsConstructor
-    class NumResult{
-        private Long    count; // 个数
-        private Integer sum;   // 总数
-    }
+//    @Data
+//    @AllArgsConstructor
+//    class NumResult{
+//        private Long    count; // 个数
+//        private Integer sum;   // 总数
+//    }
 }

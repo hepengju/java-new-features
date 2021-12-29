@@ -1,6 +1,6 @@
 package com.hepengju.jvm;
 
-import ch.qos.logback.core.util.FileSize;
+//import ch.qos.logback.core.util.FileSize;
 
 /**
  * JVM测试的工具类
@@ -26,6 +26,7 @@ public class JVM00Util {
      * 人类可读的数字
      */
     public static String getReadSize(long size){
-        return new FileSize(size).toString();
+        //return new FileSize(size).toString();
+        return String.valueOf(size);
     }
 }

@@ -1,8 +1,8 @@
 package com.hepengju.jvm;
 
-import ch.qos.logback.core.util.FileSize;
+//import ch.qos.logback.core.util.FileSize;
 
-import static com.hepengju.jvm.JVM00Util.printMemory;
+//import static com.hepengju.jvm.JVM00Util.printMemory;
 
 /**
  * JVM虚拟机参数: 基本参数
@@ -35,7 +35,7 @@ public class JVM01Base {
         // 修正为:
         // -XX:+PrintCommandLineFlags -XX:+UseSerialGC -Xlog:gc -Xlog:gc*
 
-        printMemory();
+        //printMemory();
 
         /**
          * 默认G1GC

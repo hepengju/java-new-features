@@ -78,6 +78,7 @@ public class _Base64 {
         // System.out.println(encoder.encode("ossadmin".getBytes()));//amF2YQ==
         
         // 2.commons-codec
+        /*
         String src = "ossadmin";
         System.out.println("原始: " + src);                             // 原始: ossadmin
         byte[] encode = org.apache.commons.codec.binary.Base64.encodeBase64(src.getBytes());
@@ -87,6 +88,7 @@ public class _Base64 {
         byte[] dncodeBase64 = org.apache.commons.codec.binary.Base64.decodeBase64(tar.getBytes());
         String res = new String(dncodeBase64);
         System.out.println("解码: " + res);                             // 解码: ossadmin
+        */
     }
     
 
