@@ -1,4 +1,4 @@
-![图片展示](./src/main/resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
+![图片展示](./resources/Java%E6%96%B0%E7%89%B9%E6%80%A7.png)
 
 # java-new-features
 Java新特性 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
