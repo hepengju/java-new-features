@@ -36,3 +36,10 @@ sealed class ExtShape extends Shape permits  ExtShape01, ExtShape02, ExtShapeXX 
 final class ExtShape01 extends ExtShape {}
 final class ExtShape02 extends ExtShape {}
 non-sealed class ExtShapeXX extends ExtShape {}
+
+// 示例2: 和record关键字一起使用
+sealed interface Expr permits ConstantExpr, PlusExpr, TimesExpr, NegExpr {}
+record ConstantExpr(int i)       implements Expr {}
+record PlusExpr(Expr a, Expr b)  implements Expr {}
+record TimesExpr(Expr a, Expr b) implements Expr {}
+record NegExpr(Expr e)           implements Expr {}
