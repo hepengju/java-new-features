@@ -26,6 +26,8 @@ package com.hepengju.java15.new01_sealedclass;
 public class _SealedClass {}
 
 // 示例1: 图形, 只允许 圆形,矩形,正方形
+// 注意: 也可以不使用 permits 关键字，然后将类定义与类放在相同的文件中, 即如下:
+//sealed class Shape /*permits Circle, Rectangle, Square, ExtShape*/ {};
 sealed class Shape permits Circle, Rectangle, Square, ExtShape {};
 final class Circle extends Shape {}
 final class Rectangle extends Shape {}
