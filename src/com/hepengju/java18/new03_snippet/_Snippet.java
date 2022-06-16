@@ -28,6 +28,7 @@ import java.util.stream.Stream;
  *
  * @see Stream 旧版的@code写法参考，其实现比较简单
  * @see <a href="https://openjdk.org/jeps/413">JEP413</a>
+ * @see <a href="https://docs.oracle.com/en/java/javase/18/code-snippet/index.html">A Programmmer's Guide to Snippets</a>
  */
 public class _Snippet {
 }
