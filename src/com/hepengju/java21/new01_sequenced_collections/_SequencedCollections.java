@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 有序集合
  */
-public class _Sequenced_Collections {
+public class _SequencedCollections {
 
     /**
      *  @see java.util.SequencedCollection
