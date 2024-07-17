@@ -1,4 +1,4 @@
-package com.hepengju.java17.new02_switch;
+package com.hepengju.java21.new03_switch_patterns;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
  * @see com.hepengju.java12.new01_switch._Switch
  * @see com.hepengju.java13.new01_switch._Switch
  */
-public class _Switch {
+public class _SwitchPatterns {
 
     @Test
     public void testPatternMatchingSwitchStatement() {
@@ -59,18 +59,36 @@ public class _Switch {
         return formatted;
     }
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    /**
+     * case ... when...
+     */
     @Test
-    public void testSwitchLabel() {
-        Object o = 123L;
-        String formatted = switch (o) {
-            case null      -> null;
-            case Integer i -> String.format("int %d", i);
-            case Long l    -> String.format("long %d", l);
-            case Double d  -> String.format("double %f", d);
-            case String s  -> String.format("String %s", s);
-            default -> o.toString();
-        };
+    public void testCaseRefinement(){
+        testStringOld("YES");
+        testStringNew("YES");
+    }
 
-        System.out.println(formatted);
+    void testStringOld(String response) {
+        switch (response) {
+            case null -> { }
+            case String s -> {
+                if (s.equalsIgnoreCase("YES"))
+                    System.out.println("You got it");
+                else if (s.equalsIgnoreCase("NO"))
+                    System.out.println("Shame");
+                else
+                    System.out.println("Sorry?");
+            }
+        }
+    }
+
+    void testStringNew(String response) {
+        switch (response) {
+            case null -> { }
+            case String s when s.equalsIgnoreCase("YES") -> System.out.println("You got it");
+            case String s when s.equalsIgnoreCase("NO") -> System.out.println("Shame");
+            case String s -> System.out.println("Sorry?");
+        }
     }
 }
