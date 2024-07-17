@@ -2,8 +2,8 @@
  * Java19的新特性
  *
  * <pre>
- *      405: Record Patterns (Preview)                        记录模式（预览）
- *      422: Linux/RISC-V Port                                将JDK移植到Linux/RISC-V平台 （RISC是指精简指令集）
+ *      405: Record Patterns (Preview)                       记录模式（预览）
+ *      422: Linux/RISC-V Port                               将JDK移植到Linux/RISC-V平台 （RISC是指精简指令集）
  *      424: Foreign Function & Memory API (Preview)         外部函数和内存 API（预览）
  *      425: Virtual Threads (Preview)                       虚拟线程（预览）
  *      426: Vector API (Fourth Incubator)                   矢量API（四次孵化中）
